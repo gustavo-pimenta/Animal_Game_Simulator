@@ -4,16 +4,34 @@ import time
 
 sg.theme('DarkAmber') # window theme
 
+cash=77
+
 layout = [
-    [sg.Text('pipipi:')],
-    [sg.Radio('popopo','shot', key='single', default=True), sg.Radio('pipipi', 'shot', key='multiple', default=False)],  
+    #RAW 1
+    [sg.Text('Bet Mode:')],
+    #RAW 2
+    [
+        sg.Radio('Dry','mode', key='dry', default=True), 
+        sg.Radio('Siege', 'mode', key='siege', default=False),
+        sg.Radio('Decade Dry', 'mode', key='decade_d', default=False),
+        sg.Radio('Decade Siege', 'mode', key='decade_s', default=False),
+        sg.Radio('Hundred Dry', 'mode', key='hundred_d', default=False)
+    ],
+    #RAW 3
+    [
+        sg.Radio('Hundred Siege', 'mode', key='hundred_s', default=False),
+        sg.Radio('Thousand Dry', 'mode', key='thousand_d', default=False),
+        sg.Radio('Thousand Siege', 'mode', key='thousand_s', default=False)
+    ],
+    #RAW 4 
     [sg.Text('')],
-    [sg.Text('popopo:')],
-    [sg.Slider(range=(0, 1000), orientation='h', size=(50, 15), default_value=25, tick_interval=250, key='recoil_size')],     
+    #RAW 5
+    [sg.Text('Game Bet:')],
+    #RAW 6
+    [sg.Slider(range=(0, cash), orientation='h', size=(50, 15), default_value=0, tick_interval=(int(cash/4)), key='bet')],     
+    #RAW 7
     [sg.Text('')],
-    [sg.Text('pipipi:')],
-    [sg.Slider(range=(0, 1000), orientation='h', size=(50, 15), default_value=25, tick_interval=250, key='fire_rate')],           
-    [sg.Text('')],
+    #RAW 8
     [sg.Text('Made by [insert a galera here]                       '), sg.Button('Stop', size=(10,1)), sg.Button('Start', size=(10,1))]   
 ]
 
