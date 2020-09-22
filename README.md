@@ -10,9 +10,13 @@ The game draws five numbers.
 If your animal number be set, you win a prize according to your game mode.
             
 1° number match  - first prize (100%) or group prize (20%)
+
 2° number match  - group prize (20%)
+
 3° number match  - group prize (20%)
+
 4° number match  - group prize (20%)
+
 5° number match  - group prize (20%)
 
 # Bet Modes
