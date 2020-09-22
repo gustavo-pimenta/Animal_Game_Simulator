@@ -18,37 +18,37 @@ If your animal number be set, you win a prize according to your game mode.
 
 ## Bet Modes
 
-*Dry (Seca) 
+- Dry (Seca) 
 Choose an animal.
 You win if your animal be the first prize. 
 You win 18 time your money.
 
-*Siege (Cercada) 
+- Siege (Cercada) 
 Choose an animal.
 You win if your animal be anyone of the prizes.
 You win 3.6 times your money.
 
-*Decade Dry (Década Seca) 
+- Decade Dry (Década Seca) 
 Choose a number between 00 and 99.
 If this number be the first prize, you win 60 times your money.
 
-*Decade Siege (Década de Cerco) 
+- Decade Siege (Década de Cerco) 
 Choose a number between 00 and 99.
 If this number be the anyone of the prizes, you win 12 times your money.
 
-*Hundred Dry (Centena Seca) 
+- Hundred Dry (Centena Seca) 
 Choose a number between 000 and 999.
 If this number be the first prize, you win 600 times your money.
 
-*Hundred Siege (Centena de Cerco) 
+- Hundred Siege (Centena de Cerco) 
 Choose a number between 000 and 999.
 If this number be the anyone of the prizes, you win 120 times your money.
 
-*Thousand Dry(Milhar Seca) 
+- Thousand Dry(Milhar Seca) 
 Choose a number between 0000 and 9999.
 If this number be the first prize, you win 4000 times your money.
 
-*Thousand Siege (Milhar de Cerco) 
+- Thousand Siege (Milhar de Cerco) 
 Choose a number between 0000 and 9999.
 If this number be the anyone of the prizes, you win 800 times your money.
 
