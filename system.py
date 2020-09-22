@@ -1,4 +1,5 @@
 import random
+from random import randint
 
 def sorteio(): # get the random result of the game
     num1 = random.randint(0,9999)
@@ -29,8 +30,45 @@ def sorteio(): # get the random result of the game
 
     return num1, num2, num3, num4, num5, result1, result2, result3, result4, result5
     
+def sorteio2():
 
-print(sorteio())
+    moderno = 0
+    rio = 1
+    salteado = 0
+    sorteio = []
+
+    # Gerador Dos Numeros da lista
+
+    i = 0
+    while(i < 5):
+        sorteio.append(randint(1000, 9999))
+        i += 1
+
+
+    print(sorteio)
+
+    # Moderno
+    for numerosL in sorteio:
+        moderno += numerosL
+    moderno = moderno % 1000
+    sorteio.append(moderno)
+
+    # Rio
+    rio = (sorteio[0]*sorteio[1])
+
+    if(rio >= 10000000):
+        rio = (rio % 1000000)/1000
+    else:
+        rio = (rio % 100000) / 100
+    sorteio.append(int(rio))
+
+    # Salteado
+    salteado = (sorteio[0] % 100)*4
+
+    sorteio.append(salteado)
+
+    print(sorteio)
+
 
 
 
