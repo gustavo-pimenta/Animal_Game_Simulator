@@ -9,6 +9,7 @@ last_game_notes = ['']
 last_game=''
 animal=0
 bet=''
+mode=''
 
 layout = [
     [    
@@ -175,7 +176,7 @@ janela = sg.Window('Jogo do Bicho', layout)
         
 
 def iniciar(self):
-    global cash, playing, bet, animal
+    global cash, playing, bet, animal, mode
     while True:
 
         button, values = janela.Read() # get the window info
@@ -208,7 +209,7 @@ def iniciar(self):
 
         if values['dry'] == True: mode='dry'
         elif values['siege'] == True: mode='siege'
-        else: last_game_notes=last_game_notes+'Unavailable Game Mode'
+        else: mode=''
 
         bet = values['bet']
 
@@ -253,9 +254,31 @@ def sorteio(): # get the random result of the game
 
     return num1, num2, num3, num4, num5, result1, result2, result3, result4, result5     
 
+    global animal
+
+    if animal==1: animal=[1,2,3,4]
+
+def get_result(result1, result2, result3, result4, result5):
+    global cash, playing, bet, animal
+
+    win = False
+
+    if mode=='dry':
+        if int(result1)==animal:
+            cash=cash+(bet*18)
+
+    elif mode=='siege':
+        if win==True:
+            cash=cash+(bet*3.6)
+
+
+    else: last_game_notes=last_game_notes+'Unavailable Game Mode'    
+
 while True:
 
-    
+    animal=0
+    bet=''
+    mode=''
 
     cash=1000
     last_game_notes = ['']
