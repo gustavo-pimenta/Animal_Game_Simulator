@@ -289,22 +289,54 @@ def sorteio(): # get the random result of the game
     if animal==1: animal=[1,2,3,4]
 
 def get_result(result1, result2, result3, result4, result5):
-    global cash, playing, bet, animal
+    global cash, bet, animal, last_game_notes
 
     win = False
 
     if mode=='dry':
-        if int(result1)==animal:
-            cash=cash+(bet*18)
+        for number in animal:
+            if int(result1)==number:
+                cash=cash+(bet*18)
+                last_game_notes.append(('You Win R$ '+(str(bet*18))))
+                break
 
     elif mode=='siege':
-        if win==True:
-            cash=cash+(bet*3.6)
+        for number in animal:
+            if int(result1)==number:
+                cash=cash+(bet*3.6)
+                last_game_notes.append(('You Win R$ '+(str(bet*3.6))))
+                break
+            if int(result2)==number:
+                cash=cash+(bet*3.6)
+                last_game_notes.append(('You Win R$ '+(str(bet*3.6))))
+                break
+            if int(result3)==number:
+                cash=cash+(bet*3.6)
+                last_game_notes.append(('You Win R$ '+(str(bet*3.6))))
+                break
+            if int(result4)==number:
+                cash=cash+(bet*3.6)
+                last_game_notes.append(('You Win R$ '+(str(bet*3.6))))
+                break
+            if int(result5)==number:
+                cash=cash+(bet*3.6)
+                last_game_notes.append(('You Win R$ '+(str(bet*3.6))))
+                break
+        
+            
 
 
     else: last_game_notes=last_game_notes+'Unavailable Game Mode'    
 
+def write_results():
+    global num1, num2, num3, num4, num5, result1, result2, result3, result4, result5, last_game_notes
 
+    last_game_notes.append(num1)  
+    last_game_notes.append(num2)
+    last_game_notes.append(num3)
+    last_game_notes.append(num4)
+    last_game_notes.append(num5)
+    last_game_notes.append('')
 
 while True:
 
@@ -312,9 +344,6 @@ while True:
     bet=''
     mode=''
 
-    
-    last_game_notes = ['']
-    last_game=''
     for line in last_game_notes:
         last_game = last_game + line + '\n' 
 
@@ -323,9 +352,14 @@ while True:
     janela = sg.Window('Jogo do Bicho', create_layout(cash))
     iniciar(janela)
     janela.Close()
+
+    last_game_notes = ['']
+    last_game=''
     
-     
     num1, num2, num3, num4, num5, result1, result2, result3, result4, result5 = sorteio()
+    write_results()
+    get_result(result1, result2, result3, result4, result5)
+
     
 janela.Close()   
     
