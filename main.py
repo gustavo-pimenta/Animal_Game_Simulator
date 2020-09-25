@@ -13,7 +13,6 @@ bet=''
 mode=''
 
 def create_layout(cash):
-    print(cash)
     layout = [
         [    
             sg.Frame('',[
@@ -30,8 +29,8 @@ def create_layout(cash):
                         [
                             sg.Frame('Game Mode',[
                                 [
-                                    sg.Radio('Dry','mode', key='dry', default=True), 
-                                    sg.Radio('Siege', 'mode', key='siege', default=False),
+                                    sg.Radio('Dry','mode', key='dry', default=False), 
+                                    sg.Radio('Siege', 'mode', key='siege', default=True),
                                     sg.Radio('Decade Dry', 'mode', key='decade_d', default=False),
                                     sg.Radio('Decade Siege', 'mode', key='decade_s', default=False),
                                     sg.Radio('Hundred Dry', 'mode', key='hundred_d', default=False),
@@ -177,7 +176,7 @@ def create_layout(cash):
     return layout      
 
 def iniciar(self):
-    global cash, bet, animal, mode
+    global cash, bet, animal, mode, game
     while True:
 
         button, values = janela.Read() # get the window info
@@ -208,31 +207,6 @@ def iniciar(self):
             elif values['23'] == True: animal=[89,90,91,92]
             elif values['24'] == True: animal=[93,94,95,96]
             elif values['25'] == True: animal=[97,98,99,0]
-            # if values['1'] == True: animal=1
-            # elif values['2'] == True: animal=2
-            # elif values['3'] == True: animal=3
-            # elif values['4'] == True: animal=4
-            # elif values['5'] == True: animal=5
-            # elif values['6'] == True: animal=6
-            # elif values['7'] == True: animal=7
-            # elif values['8'] == True: animal=8
-            # elif values['9'] == True: animal=9
-            # elif values['10'] == True: animal=10
-            # elif values['11'] == True: animal=11
-            # elif values['12'] == True: animal=12
-            # elif values['13'] == True: animal=13
-            # elif values['14'] == True: animal=14
-            # elif values['15'] == True: animal=15
-            # elif values['16'] == True: animal=16
-            # elif values['17'] == True: animal=17
-            # elif values['18'] == True: animal=18
-            # elif values['19'] == True: animal=19
-            # elif values['20'] == True: animal=20
-            # elif values['21'] == True: animal=21
-            # elif values['22'] == True: animal=22
-            # elif values['23'] == True: animal=23
-            # elif values['24'] == True: animal=24
-            # elif values['25'] == True: animal=25
             if values['dry'] == True: mode='dry'
             elif values['siege'] == True: mode='siege'
             else: mode=''
@@ -241,12 +215,11 @@ def iniciar(self):
         except:
             pass
 
-        if button == sg.WIN_CLOSED: 
-            break
+        if button in (sg.WIN_CLOSED, '_EXIT_', 'Close', 'Quit'):
             janela.Close()
-            sys.exit()
-            quit()
-
+            game=False
+            break
+            
         if button == 'Add Money':
             cash=cash+1000
             break
@@ -322,11 +295,8 @@ def get_result(result1, result2, result3, result4, result5):
                 cash=cash+(bet*3.6)
                 last_game_notes.append(('You Win R$ '+(str(bet*3.6))))
                 break
-        
-            
 
-
-    else: last_game_notes=last_game_notes+'Unavailable Game Mode'    
+    else: last_game_notes.append('Unavailable Game Mode') 
 
 def write_results():
     global num1, num2, num3, num4, num5, result1, result2, result3, result4, result5, last_game_notes
@@ -338,8 +308,10 @@ def write_results():
     last_game_notes.append(num5)
     last_game_notes.append('')
 
-while True:
+game=True
+while game:
 
+    # print(game)
     animal=0
     bet=''
     mode=''
@@ -347,19 +319,23 @@ while True:
     for line in last_game_notes:
         last_game = last_game + line + '\n' 
 
-    print('rodou')
-    print('cash:',cash)
-    janela = sg.Window('Jogo do Bicho', create_layout(cash))
+    try:
+        janela.Close()
+    except:
+        pass
+    janela = sg.Window('Jogo do Bicho', create_layout(cash), location=(10,10)).Finalize()
     iniciar(janela)
-    janela.Close()
-
+    
     last_game_notes = ['']
     last_game=''
     
     num1, num2, num3, num4, num5, result1, result2, result3, result4, result5 = sorteio()
     write_results()
     get_result(result1, result2, result3, result4, result5)
+    print(game)
 
-    
-janela.Close()   
+try:
+    janela.Close()
+except:
+    pass
     
