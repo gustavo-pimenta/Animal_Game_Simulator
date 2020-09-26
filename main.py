@@ -328,7 +328,7 @@ while game:
     # and the first open after the second closes
     # this way, we keep the interface in the screen all time
     if turn==1:
-        janela = sg.Window('Jogo do Bicho', create_layout(cash), location=(10,10)).Finalize()
+        janela = sg.Window('Jogo do Bicho', create_layout(cash), location=(10,10), no_titlebar=True, grab_anywhere=False).Finalize()
         iniciar(janela)
         try:
             janela2.Close()
@@ -336,7 +336,7 @@ while game:
             pass
         turn=0
     else:
-        janela2 = sg.Window('Jogo do Bicho', create_layout(cash), location=(10,10)).Finalize()
+        janela2 = sg.Window('Jogo do Bicho', create_layout(cash), location=(10,10), no_titlebar=True, grab_anywhere=False).Finalize()
         iniciar(janela2)
         try:
             janela.Close()
