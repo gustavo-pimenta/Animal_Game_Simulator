@@ -5,6 +5,7 @@ import sys
 
 sg.theme('DarkAmber') # window theme
 
+# start variables
 cash=1000
 last_game_notes = ['']
 last_game=''
@@ -12,7 +13,7 @@ animal=0
 bet=''
 mode=''
 
-def create_layout(cash):
+def create_layout(cash): # set the layout of the window
     layout = [
         [    
             sg.Frame('',[
@@ -175,11 +176,11 @@ def create_layout(cash):
 
     return layout      
 
-def iniciar(self):
+def iniciar(window): # get informations collected from the screen and the screen events
     global cash, bet, animal, mode, game
     while True:
 
-        button, values = janela.Read() # get the window info
+        button, values = window.Read() # get the window info
 
         try:
             if values['1'] == True: animal=[1,2,3,4]
@@ -216,7 +217,7 @@ def iniciar(self):
             pass
 
         if button in (sg.WIN_CLOSED, '_EXIT_', 'Close', 'Quit'):
-            janela.Close()
+            window.Close()
             game=False
             break
             
@@ -261,7 +262,7 @@ def sorteio(): # get the random result of the game
 
     if animal==1: animal=[1,2,3,4]
 
-def get_result(result1, result2, result3, result4, result5):
+def get_result(result1, result2, result3, result4, result5): # verify if the player number is one of the winner numbers and apply the prize
     global cash, bet, animal, last_game_notes
 
     win = False
@@ -298,7 +299,7 @@ def get_result(result1, result2, result3, result4, result5):
 
     else: last_game_notes.append('Unavailable Game Mode') 
 
-def write_results():
+def write_results(): # write the random numbers to be printed in screen
     global num1, num2, num3, num4, num5, result1, result2, result3, result4, result5, last_game_notes
 
     last_game_notes.append(num1)  
@@ -308,34 +309,61 @@ def write_results():
     last_game_notes.append(num5)
     last_game_notes.append('')
 
+# game main loop
 game=True
+turn=1
 while game:
 
-    # print(game)
+    # clean some variables in each loop
     animal=0
     bet=''
     mode=''
 
+    # this for loop crate a list, to be printed 
     for line in last_game_notes:
         last_game = last_game + line + '\n' 
 
-    try:
-        janela.Close()
-    except:
-        pass
-    janela = sg.Window('Jogo do Bicho', create_layout(cash), location=(10,10)).Finalize()
-    iniciar(janela)
-    
+    # this 2 options makes 2 screen
+    # the second screen opens after the first closes
+    # and the first open after the second closes
+    # this way, we keep the interface in the screen all time
+    if turn==1:
+        janela = sg.Window('Jogo do Bicho', create_layout(cash), location=(10,10)).Finalize()
+        iniciar(janela)
+        try:
+            janela2.Close()
+        except:
+            pass
+        turn=0
+    else:
+        janela2 = sg.Window('Jogo do Bicho', create_layout(cash), location=(10,10)).Finalize()
+        iniciar(janela2)
+        try:
+            janela.Close()
+        except:
+            pass
+        turn=1
+            
+    # clean the result messages of the last game  
     last_game_notes = ['']
     last_game=''
     
+    # get the ramdom numbers
     num1, num2, num3, num4, num5, result1, result2, result3, result4, result5 = sorteio()
-    write_results()
-    get_result(result1, result2, result3, result4, result5)
-    print(game)
 
+    # write the results to be printed in the screen 
+    write_results()
+
+    # verify if the player number is one of the winner numbers and apply the prize
+    get_result(result1, result2, result3, result4, result5)
+
+# emergency close window in case o program crash
 try:
     janela.Close()
+except:
+    pass
+try:
+    janela2.Close()
 except:
     pass
     
