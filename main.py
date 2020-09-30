@@ -15,8 +15,16 @@ mode=''
 
 def create_layout(cash): # set the layout of the window
     layout = [
+        # RAW 0
+        [
+            sg.Text(' ANIMAL GAME                                                       ', font=("Helvetica", 24)),
+            sg.Button('Close Game', size=(10,None), button_color=('black', 'red'), font=("Helvetica", 14))
+        ],
+        # RAW 1
         [    
+            # RAW 1.1
             sg.Frame('',[
+                # RAW 1.1.1
                 [
                     sg.Frame('Results',[
                         [
@@ -24,7 +32,7 @@ def create_layout(cash): # set the layout of the window
                         ],
                     ]),
                 ],
-                #RAW 2
+                #RAW 1.1.2
                 [
                     sg.Frame('Do your Bet',[
                         [
@@ -53,7 +61,7 @@ def create_layout(cash): # set the layout of the window
                         ],
                     ])
                 ],
-                # RAW 3
+                # RAW 1.1.3
                 [
                 sg.Button('BET', size=(15,1)),
                 sg.Frame('Wallet',[
@@ -66,112 +74,115 @@ def create_layout(cash): # set the layout of the window
                 ]
 
             ]),
+
+            # RAW 1.2
             sg.Frame('Animals',[
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Ostrich: 01, 02, 03, 04','animal', key='1', default=True), 
-                            sg.Radio('Eagle: 05, 06, 07, 08', 'animal', key='2', default=False),
+                            sg.Radio('Ostrich: 01, 02, 03, 04','animal', key='1', default=True, size=(18,None)), 
+                            sg.Radio('Eagle: 05, 06, 07, 08', 'animal', key='2', default=False, size=(18,None)),
                         ]
                     ]),
                 ],
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Donkey: 09, 10, 11, 12','animal', key='3', default=False), 
-                            sg.Radio('Butterfly: 13, 14, 15, 16', 'animal', key='4', default=False),
+                            sg.Radio('Donkey: 09, 10, 11, 12','animal', key='3', default=False, size=(18,None)), 
+                            sg.Radio('Butterfly: 13, 14, 15, 16', 'animal', key='4', default=False, size=(18,None)),
                         ]
                     ]),
                 ],
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Dog: 17, 18, 19, 20','animal', key='5', default=False), 
-                            sg.Radio('Goat: 21, 22, 23, 24', 'animal', key='6', default=False),
+                            sg.Radio('Dog: 17, 18, 19, 20','animal', key='5', default=False, size=(18,None)), 
+                            sg.Radio('Goat: 21, 22, 23, 24', 'animal', key='6', default=False, size=(18,None)),
                         ]
                     ]),
                 ],
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Ram: 25, 26, 27, 28','animal', key='7', default=False), 
-                            sg.Radio('Camel: 29, 30, 31, 32', 'animal', key='8', default=False),
+                            sg.Radio('Ram: 25, 26, 27, 28','animal', key='7', default=False, size=(18,None)), 
+                            sg.Radio('Camel: 29, 30, 31, 32', 'animal', key='8', default=False, size=(18,None)),
                         ]
                     ]),
                 ],
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Snake: 33, 34, 35, 36','animal', key='9', default=False), 
-                            sg.Radio('Rabbit: 37, 38, 39, 40', 'animal', key='10', default=False),
+                            sg.Radio('Snake: 33, 34, 35, 36','animal', key='9', default=False, size=(18,None)), 
+                            sg.Radio('Rabbit: 37, 38, 39, 40', 'animal', key='10', default=False, size=(18,None)),
                         ]
                     ]),
                 ],
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Horse: 41, 42, 43, 44','animal', key='11', default=False), 
-                            sg.Radio('Elephant: 45, 46, 47, 48', 'animal', key='12', default=False),
+                            sg.Radio('Horse: 41, 42, 43, 44','animal', key='11', default=False, size=(18,None)), 
+                            sg.Radio('Elephant: 45, 46, 47, 48', 'animal', key='12', default=False, size=(18,None)),
                         ]
                     ]),
                 ],
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Rooster: 49, 50, 51, 52','animal', key='13', default=False), 
-                            sg.Radio('Cat: 53, 54, 55, 56', 'animal', key='14', default=False),
+                            sg.Radio('Rooster: 49, 50, 51, 52','animal', key='13', default=False, size=(18,None)), 
+                            sg.Radio('Cat: 53, 54, 55, 56', 'animal', key='14', default=False, size=(18,None)),
                         ]
                     ]),
                 ],
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Alligator: 57, 58, 59, 60','animal', key='15', default=False), 
-                            sg.Radio('Lion: 61, 62, 63, 64', 'animal', key='16', default=False),
+                            sg.Radio('Alligator: 57, 58, 59, 60','animal', key='15', default=False, size=(18,None)), 
+                            sg.Radio('Lion: 61, 62, 63, 64', 'animal', key='16', default=False, size=(18,None)),
                         ]
                     ]),
                 ],
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Monkey: 65, 66, 67, 68','animal', key='17', default=False), 
-                            sg.Radio('Pig: 69, 70, 71, 72', 'animal', key='18', default=False),
+                            sg.Radio('Monkey: 65, 66, 67, 68','animal', key='17', default=False, size=(18,None)), 
+                            sg.Radio('Pig: 69, 70, 71, 72', 'animal', key='18', default=False, size=(18,None)),
                         ]
                     ]),
                 ],
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Peacock: 73, 74, 75, 76','animal', key='19', default=False), 
-                            sg.Radio('Peru: 77, 78, 79, 80', 'animal', key='20', default=False),
+                            sg.Radio('Peacock: 73, 74, 75, 76','animal', key='19', default=False, size=(18,None)), 
+                            sg.Radio('Peru: 77, 78, 79, 80', 'animal', key='20', default=False, size=(18,None)),
                         ]
                     ]),
                 ],
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Bull: 81, 82, 83, 84','animal', key='21', default=False), 
-                            sg.Radio('Tiger: 85, 86, 87, 88', 'animal', key='22', default=False),
+                            sg.Radio('Bull: 81, 82, 83, 84','animal', key='21', default=False, size=(18,None)), 
+                            sg.Radio('Tiger: 85, 86, 87, 88', 'animal', key='22', default=False, size=(18,None)),
                         ]
                     ]),
                 ],
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Bear: 89, 90, 91, 92','animal', key='23', default=False), 
-                            sg.Radio('Deer: 93, 94, 95, 96', 'animal', key='24', default=False),
+                            sg.Radio('Bear: 89, 90, 91, 92','animal', key='23', default=False, size=(18,None)), 
+                            sg.Radio('Deer: 93, 94, 95, 96', 'animal', key='24', default=False, size=(18,None)),
                         ]
                     ]),
                 ],
                 [
                     sg.Frame('',[
                         [
-                            sg.Radio('Cow: 97, 98, 99, 00','animal', key='25', default=False), 
-                        ]
+                            sg.Radio('Cow: 97, 98, 99, 00','animal', key='25', default=False, size=(40,None)), 
+                        ],
+                        
                     ]),
                 ],
             ])
-        ]
+        ],
     ]
 
     return layout      
@@ -216,7 +227,7 @@ def iniciar(window): # get informations collected from the screen and the screen
         except:
             pass
 
-        if button in (sg.WIN_CLOSED, '_EXIT_', 'Close', 'Quit'):
+        if button in (sg.WIN_CLOSED, '_EXIT_', 'Close', 'Quit') or button == 'Close Game':
             window.Close()
             game=False
             break
