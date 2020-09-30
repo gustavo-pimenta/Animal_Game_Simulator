@@ -1,6 +1,6 @@
-# Jogo_do_Bicho_Simulator
+# Animal_Game_Simulator
 
-An automated game system simulating a brazilian gamble game named "Jogo do Bicho"
+An automated game system simulating a brazilian gamble game named "Jogo do Bicho (Animal Game)"
 
 ## Game Rules 
 
