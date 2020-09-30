@@ -38,13 +38,10 @@ def sorteio2():
     sorteio = []
 
     # Gerador Dos Numeros da lista
-
     i = 0
     while(i < 5):
         sorteio.append(randint(1000, 9999))
         i += 1
-
-
     print(sorteio)
 
     # Moderno
@@ -57,16 +54,14 @@ def sorteio2():
     rio = (sorteio[0]*sorteio[1])
 
     if(rio >= 10000000):
-        rio = (rio % 1000000)/1000
+        rio=(rio % 1000000)/1000
     else:
-        rio = (rio % 100000) / 100
+        rio=(rio % 100000)/100
     sorteio.append(int(rio))
 
     # Salteado
     salteado = (sorteio[0] % 100)*4
-
     sorteio.append(salteado)
-
     print(sorteio)
 
 

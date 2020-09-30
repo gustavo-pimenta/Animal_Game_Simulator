@@ -12,6 +12,8 @@ last_game=''
 animal=0
 bet=''
 mode=''
+show_results=True
+# w, h = sg.Window.get_screen_size()
 
 def create_layout(cash): # set the layout of the window
     layout = [
@@ -188,7 +190,7 @@ def create_layout(cash): # set the layout of the window
     return layout      
 
 def iniciar(window): # get informations collected from the screen and the screen events
-    global cash, bet, animal, mode, game
+    global cash, bet, animal, mode, game, show_results
     while True:
 
         button, values = window.Read() # get the window info
@@ -234,10 +236,12 @@ def iniciar(window): # get informations collected from the screen and the screen
             
         if button == 'Add Money':
             cash=cash+1000
+            show_results=False
             break
 
         if button == 'BET':
             cash=cash-bet
+            show_results=True
             break
 
 def sorteio(): # get the random result of the game
@@ -330,16 +334,20 @@ while game:
     bet=''
     mode=''
 
-    # this for loop crate a list, to be printed 
+    # this for loop crate a list of results, to be printed in the screen
     for line in last_game_notes:
         last_game = last_game + line + '\n' 
 
+    if show_results==False:
+        last_game_notes = ['']
+        last_game=''
+        
     # this 2 options makes 2 screen
     # the second screen opens after the first closes
     # and the first open after the second closes
     # this way, we keep the interface in the screen all time
     if turn==1:
-        janela = sg.Window('Jogo do Bicho', create_layout(cash), location=(10,10), no_titlebar=True, grab_anywhere=False).Finalize()
+        janela = sg.Window('Jogo do Bicho', create_layout(cash), location=(10,10), no_titlebar=True, grab_anywhere=False, size=(900,630)).Finalize()
         iniciar(janela)
         try:
             janela2.Close()
@@ -347,7 +355,7 @@ while game:
             pass
         turn=0
     else:
-        janela2 = sg.Window('Jogo do Bicho', create_layout(cash), location=(10,10), no_titlebar=True, grab_anywhere=False).Finalize()
+        janela2 = sg.Window('Jogo do Bicho', create_layout(cash), location=(10,10), no_titlebar=True, grab_anywhere=False, size=(900,630)).Finalize()
         iniciar(janela2)
         try:
             janela.Close()
