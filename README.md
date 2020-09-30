@@ -54,3 +54,28 @@ If this number be the anyone of the prizes, you win 800 times your money.
 
 ## Animals
 
+Ostrich: 01, 02, 03, 04
+Eagle: 05, 06, 07, 08
+Donkey: 09, 10, 11, 12
+Butterfly: 13, 14, 15, 16
+Dog: 17, 18, 19, 20
+Goat: 21, 22, 23, 24
+Ram: 25, 26, 27, 28
+Camel: 29, 30, 31, 32
+Snake: 33, 34, 35, 36
+Rabbit: 37, 38, 39, 40
+Horse: 41, 42, 43, 44
+Elephant: 45, 46, 47, 48
+Rooster: 49, 50, 51, 52
+Cat: 53, 54, 55, 56
+Alligator: 57, 58, 59, 60
+Lion: 61, 62, 63, 64
+Monkey: 65, 66, 67, 68
+Pig: 69, 70, 71, 72
+Peacock: 73, 74, 75, 76
+Peru: 77, 78, 79, 80
+Bull: 81, 82, 83, 84
+Tiger: 85, 86, 87, 88
+Bear: 89, 90, 91, 92
+Deer: 93, 94, 95, 96
+Cow: 97, 98, 99, 00
