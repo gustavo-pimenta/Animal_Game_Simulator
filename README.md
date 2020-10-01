@@ -1,6 +1,7 @@
 # Animal_Game_Simulator
 
 An automated game system simulating a brazilian gamble game named "Jogo do Bicho (Animal Game)"
+
 Game Page: https://gustavo-pimenta.itch.io/animal-game-simulator
 
 ## Game Rules 
